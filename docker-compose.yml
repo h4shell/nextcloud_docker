@@ -1,0 +1,16 @@
+services:
+  nextcloud:
+    image: nextcloud:latest
+    restart: unless-stopped
+    container_name: casaos
+    ports:
+      - 8080:80
+    volumes:
+      - nextcloud:/var/www/html
+      - db:/var/lib/mysql
+
+volumes:
+  nextcloud:
+    driver: local
+  db:
+    driver: local
